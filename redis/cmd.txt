@@ -1,0 +1,547 @@
+redis
+
+stored session: Thu Aug 31 14:10:40 CST 2017
+
+yangzhiqiongs-MacBook-Pro:programming root#
+
+yangzhiqiongs-MacBook-Pro:programming root#
+
+yangzhiqiongs-MacBook-Pro:programming root# red
+
+redis-benchmark   redis-check-aof   redis-check-dump  redis-cli         redis-sentinel    redis-server      redo_prebinding
+
+yangzhiqiongs-MacBook-Pro:programming root# redis-cli
+
+127.0.0.1:6379> ping
+
+PONG
+
+127.0.0.1:6379> ECHO
+
+(error) ERR wrong number of arguments for ‘echo’ command
+
+127.0.0.1:6379> ECHO “hello world”
+
+“hello world”
+
+127.0.0.1:6379> SET foo 100
+
+OK
+
+127.0.0.1:6379> GET foo
+
+“100”
+
+127.0.0.1:6379> set bar
+
+(error) ERR wrong number of arguments for ‘set’ command
+
+127.0.0.1:6379> SET bar “hello world”
+
+OK
+
+127.0.0.1:6379> get bar
+
+“hello world”
+
+127.0.0.1:6379> set bar “aa”
+
+OK
+
+127.0.0.1:6379> get bar
+
+“aa”
+
+127.0.0.1:6379> incr foo
+
+(integer) 101
+
+127.0.0.1:6379> get fool
+
+(nil)
+
+127.0.0.1:6379> decr foo
+
+(integer) 100
+
+127.0.0.1:6379> exits foo
+
+(error) ERR unknown command ‘exits’
+
+127.0.0.1:6379> exists foo
+
+(integer) 1
+
+127.0.0.1:6379> DEL bar
+
+(integer) 1
+
+127.0.0.1:6379> exist bar
+
+(error) ERR unknown command ‘exist’
+
+127.0.0.1:6379> exists bar
+
+(integer) 0
+
+127.0.0.1:6379> get bar
+
+(nil)
+
+127.0.0.1:6379> FLUSH all
+
+(error) ERR unknown command ‘FLUSH’
+
+127.0.0.1:6379> FLUSHALL
+
+OK
+
+127.0.0.1:6379> GET foo
+
+(nil)
+
+127.0.0.1:6379> set server:name someserver
+
+OK
+
+127.0.0.1:6379> vet server:name
+
+(error) ERR unknown command ‘vet’
+
+127.0.0.1:6379> set server:name
+
+(error) ERR wrong number of arguments for ‘set’ command
+
+127.0.0.1:6379> SET server:name
+
+(error) ERR wrong number of arguments for ‘set’ command
+
+127.0.0.1:6379> SET server:name someserver
+
+OK
+
+127.0.0.1:6379> GET server:name
+
+“someserver”
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379> SET greeting “hello world”
+
+OK
+
+127.0.0.1:6379> GET greeting
+
+“hello world”
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379> EXPIRE Greeting
+
+(error) ERR wrong number of arguments for ‘expire’ command
+
+127.0.0.1:6379> EXPIRE greeting 30
+
+(integer) 1
+
+127.0.0.1:6379> TTL greeting
+
+(integer) 22
+
+127.0.0.1:6379> TTL greeting
+
+(integer) 17
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379> GET greeting
+
+(nil)
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379> SETX greeting 30 “hello world”
+
+(error) ERR unknown command ‘SETX’
+
+127.0.0.1:6379> GET greeting
+
+(nil)
+
+127.0.0.1:6379> TTL greeting
+
+(integer) -2
+
+127.0.0.1:6379> PERSIST greeting
+
+(integer) 0
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379> MSET key1 “hello” key2 “world”
+
+OK
+
+127.0.0.1:6379> GET key1
+
+“hello”
+
+127.0.0.1:6379> get key2
+
+“world”
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379> clear
+
+127.0.0.1:6379> APPEND key1 “world”
+
+(integer) 10
+
+127.0.0.1:6379> GET key1
+
+“helloworld”
+
+127.0.0.1:6379> RENAME key1 greeting
+
+OK
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379> GET key1
+
+(nil)
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379> LPUSH  people “Brad”
+
+(integer) 1
+
+127.0.0.1:6379> LPUSH  people “Jen”
+
+(integer) 2
+
+127.0.0.1:6379> LPUSH  people “Tom”
+
+(integer) 3
+
+127.0.0.1:6379> LRANGE people
+
+(error) ERR wrong number of arguments for ‘lrange’ command
+
+127.0.0.1:6379> LRANGE people 1 2
+
+1) “Jen”
+
+2) “Brad”
+
+127.0.0.1:6379> LRANGE people 1 2 3
+
+(error) ERR wrong number of arguments for ‘lrange’ command
+
+127.0.0.1:6379> LRANGE people 1  3
+
+1) “Jen”
+
+2) “Brad”
+
+127.0.0.1:6379> LRANGE people 1 3
+
+1) “Jen”
+
+2) “Brad”
+
+127.0.0.1:6379> LRANGE people 0 1
+
+1) “Tom”
+
+2) “Jen”
+
+127.0.0.1:6379> LRANGE people 0 2
+
+1) “Tom”
+
+2) “Jen”
+
+3) “Brad”
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379> LLEN “Jen”
+
+(integer) 0
+
+127.0.0.1:6379> LLEN “Jen”
+
+(integer) 0
+
+127.0.0.1:6379> LLEN people
+
+(integer) 3
+
+127.0.0.1:6379> LPOP people
+
+“Tom”
+
+127.0.0.1:6379> RPOP people
+
+“Brad”
+
+127.0.0.1:6379> LINSERT people BEFORE “brad” “jen”
+
+(integer) -1
+
+127.0.0.1:6379> LINSERT people BEFORE “Tome”
+
+(error) ERR wrong number of arguments for ‘linsert’ command
+
+127.0.0.1:6379> LINSERT people BEFORE “Tom”
+
+(error) ERR wrong number of arguments for ‘linsert’ command
+
+127.0.0.1:6379> LINSERT people BEFORE “Tom”
+
+(error) ERR wrong number of arguments for ‘linsert’ command
+
+127.0.0.1:6379> LINSERT people BEFORE “Tom”
+
+(error) ERR wrong number of arguments for ‘linsert’ command
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379> FLUSHALL
+
+OK
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379> SADD cars “Ford”
+
+(integer) 1
+
+127.0.0.1:6379> SADD cars “Honda”
+
+(integer) 1
+
+127.0.0.1:6379> SADD cars “BMW”
+
+(integer) 1
+
+127.0.0.1:6379> sismember cars “Ford”
+
+(integer) 1
+
+127.0.0.1:6379> sismember cars “BMW”
+
+(integer) 1
+
+127.0.0.1:6379> sismember cars
+
+(error) ERR wrong number of arguments for ‘sismember’ command
+
+127.0.0.1:6379> SISMEMBER cars
+
+(error) ERR wrong number of arguments for ‘sismember’ command
+
+127.0.0.1:6379> SMEMBERS cars
+
+1) “BMW”
+
+2) “Honda”
+
+3) “Ford”
+
+127.0.0.1:6379> SISMEMBERS cars “Honda”
+
+(error) ERR unknown command ‘SISMEMBERS’
+
+127.0.0.1:6379> SISMEMBER cars “Honda”
+
+(integer) 1
+
+127.0.0.1:6379> FLUSHALL
+
+OK
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379> ZADD users
+
+(error) ERR wrong number of arguments for ‘zadd’ command
+
+127.0.0.1:6379> ZADD users 1981 “brad Traversy”
+
+(integer) 1
+
+127.0.0.1:6379> ZADD users 1975 “John Doe”
+
+(integer) 1
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379> ZADD users 1990 “Mike Smith”
+
+(integer) 1
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379> ZRANK users “Mike Smith”
+
+(integer) 2
+
+127.0.0.1:6379> ZRANK users “John Doe”
+
+(integer) 0
+
+127.0.0.1:6379> ZRANK users “Mike Smith”
+
+(integer) 2
+
+127.0.0.1:6379> ZRANK users
+
+(error) ERR wrong number of arguments for ‘zrank’ command
+
+127.0.0.1:6379> ZRANGE users 0 1
+
+1) “John Doe”
+
+2) “brad Traversy”
+
+127.0.0.1:6379> ZINCRBY users 1 “John Doe”
+
+“1976”
+
+127.0.0.1:6379> HSET user:brad name “brad travercy”
+
+(integer) 1
+
+127.0.0.1:6379> HSET user:brad email “brad.com”
+
+(integer) 1
+
+127.0.0.1:6379> HGET user:brad
+
+(error) ERR wrong number of arguments for ‘hget’ command
+
+127.0.0.1:6379> HGET user:brad
+
+(error) ERR wrong number of arguments for ‘hget’ command
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379>
+
+127.0.0.1:6379> SAVE
+
+OK
+
+127.0.0.1:6379> quit
+
+yangzhiqiongs-MacBook-Pro:programming root#
+
+yangzhiqiongs-MacBook-Pro:programming root#
+
+yangzhiqiongs-MacBook-Pro:programming root#
+
+yangzhiqiongs-MacBook-Pro:programming root#
+
+yangzhiqiongs-MacBook-Pro:programming root#

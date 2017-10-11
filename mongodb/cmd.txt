@@ -1,0 +1,1017 @@
+安装： brew install mongodb
+
+1:server:
+
+mongod –directoryperdb –dbpath /Users/peteryang/moby/code/mongodb/db –logpath /Users/peteryang/moby/code/mongodb/log/mongo.log –logappend –rest
+
+
+
+2:client:
+
+yangzhiqiongs-MacBook-Pro:~ peteryang$ mongo
+
+MongoDB shell version v3.4.9
+
+connecting to: mongodb://127.0.0.1:27017
+
+2017-09-21T14:18:37.298+0800 W NETWORK  [thread1] Failed to connect to 127.0.0.1:27017, in(checking socket for error after poll), reason: Connection refused
+
+2017-09-21T14:18:37.299+0800 E QUERY    [thread1] Error: couldn’t connect to server 127.0.0.1:27017, connection attempt failed :
+
+connect@src/mongo/shell/mongo.js:237:13
+
+@(connect):1:6
+
+exception: connect failed
+
+yangzhiqiongs-MacBook-Pro:~ peteryang$ mongo
+
+MongoDB shell version v3.4.9
+
+connecting to: mongodb://127.0.0.1:27017
+
+2017-09-21T14:18:39.024+0800 W NETWORK  [thread1] Failed to connect to 127.0.0.1:27017, in(checking socket for error after poll), reason: Connection refused
+
+2017-09-21T14:18:39.024+0800 E QUERY    [thread1] Error: couldn’t connect to server 127.0.0.1:27017, connection attempt failed :
+
+connect@src/mongo/shell/mongo.js:237:13
+
+@(connect):1:6
+
+exception: connect failed
+
+yangzhiqiongs-MacBook-Pro:~ peteryang$ mongo
+
+MongoDB shell version v3.4.9
+
+connecting to: mongodb://127.0.0.1:27017
+
+MongoDB server version: 3.4.9
+
+Server has startup warnings:
+
+2017-09-21T14:20:24.304+0800 I CONTROL  [main] ** WARNING: –rest is specified without –httpinterface,
+
+2017-09-21T14:20:24.304+0800 I CONTROL  [main] **          enabling http interface
+
+2017-09-21T14:20:25.847+0800 I CONTROL  [initandlisten]
+
+2017-09-21T14:20:25.848+0800 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+
+2017-09-21T14:20:25.848+0800 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+
+2017-09-21T14:20:25.848+0800 I CONTROL  [initandlisten]
+
+2017-09-21T14:20:25.848+0800 I CONTROL  [initandlisten]
+
+2017-09-21T14:20:25.848+0800 I CONTROL  [initandlisten] ** WARNING: soft rlimits too low. Number of files is 256, should be at least 1000
+
+>
+
+>
+
+>
+
+>
+
+>
+
+> function times2(num){
+
+… return num*2;
+
+… }
+
+> time2(2)
+
+2017-09-21T14:22:37.446+0800 E QUERY    [thread1] ReferenceError: time2 is not defined :
+
+@(shell):1:1
+
+> time2(2);
+
+2017-09-21T14:22:45.793+0800 E QUERY    [thread1] ReferenceError: time2 is not defined :
+
+@(shell):1:1
+
+> times(2);
+
+2017-09-21T14:22:53.601+0800 E QUERY    [thread1] ReferenceError: times is not defined :
+
+@(shell):1:1
+
+> times2(2);
+
+4
+
+>
+
+> times2(9);
+
+18
+
+> show dbs
+
+admin  0.000GB
+
+local  0.000GB
+
+> db
+
+test
+
+> use test_1
+
+switched to db test_1
+
+>
+
+> peteryang = (“name” : “peter yang”,”position” : “Programmer”,
+
+… “email” : “db@aol.com”,
+
+… “hiredate” : new Date()}
+
+2017-09-21T14:26:11.349+0800 E QUERY    [thread1] SyntaxError: missing ) in parenthetical @(shell):1:20
+
+> peteryang = {“name” : “peter yang”,”position” : “Programmer”, “email” : “db@aol.com”, “hiredate” : new Date()}
+
+{
+
+“name” : “peter yang”,
+
+“position” : “Programmer”,
+
+“email” : “db@aol.com”,
+
+“hiredate” : ISODate(“2017-09-21T06:26:26.838Z”)
+
+}
+
+> db
+
+DBCommandCursor(  DBExplainQuery(   DBPointer(        db
+
+> db
+
+DBCommandCursor(  DBExplainQuery(   DBPointer(        db
+
+> db.
+
+db.adminCommand(               db.grantRolesToUser(
+
+db.auth(                       db.group(
+
+db.changeUserPassword(         db.groupcmd(
+
+db.cloneCollection(            db.groupeval(
+
+db.cloneDatabase(              db.hasOwnProperty(
+
+db.commandHelp(                db.help(
+
+db.constructor                 db.hostInfo(
+
+db.copyDatabase(               db.isMaster(
+
+db.createCollection(           db.killOP(
+
+db.createRole(                 db.killOp(
+
+db.createUser(                 db.listCommands(
+
+db.createView(                 db.loadServerScripts(
+
+db.currentOP(                  db.logout(
+
+db.currentOp(                  db.printCollectionStats(
+
+db.dbEval(                     db.printReplicationInfo(
+
+db.dropAllRoles(               db.printShardingStatus(
+
+db.dropAllUsers(               db.printSlaveReplicationInfo(
+
+db.dropDatabase(               db.propertyIsEnumerable(
+
+db.dropRole(                   db.prototype
+
+db.dropUser(                   db.removeUser(
+
+db.eval(                       db.repairDatabase(
+
+db.forceError(                 db.resetError(
+
+db.fsyncLock(                  db.revokePrivilegesFromRole(
+
+> db.test_1.in
+
+db.test_1.initializeOrderedBulkOp(    db.test_1.insertMany(
+
+db.test_1.initializeUnorderedBulkOp(  db.test_1.insertOne(
+
+db.test_1.insert(
+
+> db.test_1.in
+
+db.test_1.initializeOrderedBulkOp(    db.test_1.insertMany(
+
+db.test_1.initializeUnorderedBulkOp(  db.test_1.insertOne(
+
+db.test_1.insert(
+
+> db.test_1.insert
+
+db.test_1.insert(      db.test_1.insertMany(  db.test_1.insertOne(
+
+> db.test_1.insert(peteryang)
+
+WriteResult({ “nInserted” : 1 })
+
+> db.test_1.find()
+
+{ “_id” : ObjectId(“59c35bc646494d8873b819a7”), “name” : “peter yang”, “position” : “Programmer”, “email” : “db@aol.com”, “hiredate” : ISODate(“2017-09-21T06:26:26.838Z”) }
+
+>
+
+>
+
+> db.test_1.find().pretty()
+
+{
+
+“_id” : ObjectId(“59c35bc646494d8873b819a7”),
+
+“name” : “peter yang”,
+
+“position” : “Programmer”,
+
+“email” : “db@aol.com”,
+
+“hiredate” : ISODate(“2017-09-21T06:26:26.838Z”)
+
+}
+
+> peteryang
+
+peteryang
+
+> peteryang.references = []
+
+[ ]
+
+> db.test_1.update({“name” : “michael”},peteryang)
+
+WriteResult({ “nMatched” : 0, “nUpserted” : 0, “nModified” : 0 })
+
+> db.test_1.find().pretty()
+
+{
+
+“_id” : ObjectId(“59c35bc646494d8873b819a7”),
+
+“name” : “peter yang”,
+
+“position” : “Programmer”,
+
+“email” : “db@aol.com”,
+
+“hiredate” : ISODate(“2017-09-21T06:26:26.838Z”)
+
+}
+
+> db.test_1.update({“name” : “peteryang”},jimmyyang)
+
+2017-09-21T14:30:46.609+0800 E QUERY    [thread1] ReferenceError: jimmyyang is not defined :
+
+@(shell):1:19
+
+> db.test_1.update({“name” : “peteryang”}, Jimmyyang)
+
+2017-09-21T14:31:11.266+0800 E QUERY    [thread1] ReferenceError: Jimmyyang is not defined :
+
+@(shell):1:19
+
+> db.test_1.update({“name” : “peter yang”}, peteryang)
+
+WriteResult({ “nMatched” : 1, “nUpserted” : 0, “nModified” : 1 })
+
+> db.test_1.find().pretty()
+
+{
+
+“_id” : ObjectId(“59c35bc646494d8873b819a7”),
+
+“name” : “peter yang”,
+
+“position” : “Programmer”,
+
+“email” : “db@aol.com”,
+
+“hiredate” : ISODate(“2017-09-21T06:26:26.838Z”),
+
+“references” : [ ]
+
+}
+
+> db.test_1.update({“name” : “michael yang”}, peter yang)
+
+2017-09-21T14:32:27.652+0800 E QUERY    [thread1] SyntaxError: missing ) after argument list @(shell):1:50
+
+> db.test_1.update({“name” : “michaelyang”}, peter yang)
+
+2017-09-21T14:32:40.981+0800 E QUERY    [thread1] SyntaxError: missing ) after argument list @(shell):1:49
+
+> db.test_1.update({“name” : “michaelyang”}, peteryang)
+
+WriteResult({ “nMatched” : 0, “nUpserted” : 0, “nModified” : 0 })
+
+> db.test_1.find().pretty()
+
+{
+
+“_id” : ObjectId(“59c35bc646494d8873b819a7”),
+
+“name” : “peter yang”,
+
+“position” : “Programmer”,
+
+“email” : “db@aol.com”,
+
+“hiredate” : ISODate(“2017-09-21T06:26:26.838Z”),
+
+“references” : [ ]
+
+}
+
+> db.test_1.update({“position” : “teacher”}, peteryang)
+
+WriteResult({ “nMatched” : 0, “nUpserted” : 0, “nModified” : 0 })
+
+>
+
+> db.test_1.find().pretty()
+
+{
+
+“_id” : ObjectId(“59c35bc646494d8873b819a7”),
+
+“name” : “peter yang”,
+
+“position” : “Programmer”,
+
+“email” : “db@aol.com”,
+
+“hiredate” : ISODate(“2017-09-21T06:26:26.838Z”),
+
+“references” : [ ]
+
+}
+
+> db.test_1.update({“position” : “teacher”}, peter yang)
+
+2017-09-21T14:33:42.320+0800 E QUERY    [thread1] SyntaxError: missing ) after argument list @(shell):1:49
+
+> db.test_1.update({“position” : “teacher”}, peter\ yang)
+
+2017-09-21T14:33:49.200+0800 E QUERY    [thread1] SyntaxError: illegal character @(shell):1:48
+
+> db.test_1.update({“position” : “teacher”}, position)
+
+2017-09-21T14:34:17.683+0800 E QUERY    [thread1] ReferenceError: position is not defined :
+
+@(shell):1:19
+
+> db.test_1.update({“name” : “peteryang”}, peteryang)
+
+WriteResult({ “nMatched” : 0, “nUpserted” : 0, “nModified” : 0 })
+
+> db.test_1.update({“name” : “peteryang”}, peter yang)
+
+2017-09-21T14:34:57.249+0800 E QUERY    [thread1] SyntaxError: missing ) after argument list @(shell):1:47
+
+> db.test_1.update({“name” : “peteryang”}, (peter yang))
+
+2017-09-21T14:35:05.953+0800 E QUERY    [thread1] SyntaxError: missing ) in parenthetical @(shell):1:48
+
+> db.test_1.update({“name” : “peteryang”}, peteryang)
+
+WriteResult({ “nMatched” : 0, “nUpserted” : 0, “nModified” : 0 })
+
+> db.test_1.find().pretty()
+
+{
+
+“_id” : ObjectId(“59c35bc646494d8873b819a7”),
+
+“name” : “peter yang”,
+
+“position” : “Programmer”,
+
+“email” : “db@aol.com”,
+
+“hiredate” : ISODate(“2017-09-21T06:26:26.838Z”),
+
+“references” : [ ]
+
+}
+
+> db.test_1.update({“name” : “peteryang”}, “peter yang”)
+
+2017-09-21T14:35:49.171+0800 E QUERY    [thread1] Error: attempted to save a string value.  document expected. :
+
+DBCollection.prototype._validateObject@src/mongo/shell/collection.js:224:1
+
+DBCollection.prototype._validateForStorage@src/mongo/shell/collection.js:241:5
+
+DBCollection.prototype._validateUpdateDoc@src/mongo/shell/collection.js:501:9
+
+Bulk/findOperations.updateOne@src/mongo/shell/bulk_api.js:693:17
+
+DBCollection.prototype.update@src/mongo/shell/collection.js:579:13
+
+@(shell):1:1
+
+> db.test_1.update({“name” : “peteryang”}, peter yang)
+
+2017-09-21T14:36:00.791+0800 E QUERY    [thread1] SyntaxError: missing ) after argument list @(shell):1:47
+
+> db.test_1.update({“name” : “peteryang”}, peteryang)
+
+WriteResult({ “nMatched” : 0, “nUpserted” : 0, “nModified” : 0 })
+
+>
+
+>
+
+>
+
+>
+
+> db.t
+
+db.test_1           db.toLocaleString(  db.toString(        db.tojson(
+
+> db.test_1.remove({“name” : “peter yang”})
+
+WriteResult({ “nRemoved” : 1 })
+
+>
+
+>
+
+> db.test_1.find
+
+db.test_1.find(               db.test_1.findOneAndDelete(
+
+db.test_1.findAndModify(      db.test_1.findOneAndReplace(
+
+db.test_1.findOne(            db.test_1.findOneAndUpdate(
+
+> db.test_1.find().pretty
+
+function () {
+
+this._prettyShell = true;
+
+return this;
+
+}
+
+> boolean
+
+2017-09-21T14:38:35.152+0800 E QUERY    [thread1] ReferenceError: boolean is not defined :
+
+@(shell):1:1
+
+> null : {“name” : null}
+
+2017-09-21T14:39:22.890+0800 E QUERY    [thread1] SyntaxError: missing ; before statement @(shell):1:5
+
+>
+
+> boolean : {“over20” : true}
+
+2017-09-21T14:39:45.466+0800 E QUERY    [thread1] SyntaxError: missing ; before statement @(shell):1:20
+
+> number :{{“height” : 6.25}
+
+… ^C
+
+> boolean : {“over20” : true};
+
+2017-09-21T14:40:14.146+0800 E QUERY    [thread1] SyntaxError: missing ; before statement @(shell):1:20
+
+> string : {“address” : “123”}
+
+2017-09-21T14:40:43.867+0800 E QUERY    [thread1] SyntaxError: missing ; before statement @(shell):1:20
+
+> string : {“address” : “123”};
+
+2017-09-21T14:40:45.715+0800 E QUERY    [thread1] SyntaxError: missing ; before statement @(shell):1:20
+
+> {“grades” : [“a”,”b”,”c”,”d”,”e”,”f”]}
+
+2017-09-21T14:41:35.973+0800 E QUERY    [thread1] SyntaxError: missing ; before statement @(shell):1:10
+
+> {“hiredate”, new Date()}
+
+ISODate(“2017-09-21T06:42:24.912Z”)
+
+> {“streetegex”: /^[A-Aa-z0-9\.\’\-]}{5,30}
+
+2017-09-21T14:43:46.743+0800 E QUERY    [thread1] SyntaxError: missing ; before statement @(shell):1:13
+
+> {“streetegex”: /^[A-Aa-z0-9\.\’\-]}{5,30};
+
+2017-09-21T14:43:48.975+0800 E QUERY    [thread1] SyntaxError: missing ; before statement @(shell):1:13
+
+>
+
+> {“info” : {“name” : “sue smith”}}
+
+2017-09-21T14:44:21.752+0800 E QUERY    [thread1] SyntaxError: missing ; before statement @(shell):1:8
+
+> {“info” : {“name” : “sue smith”}};
+
+2017-09-21T14:44:23.551+0800 E QUERY    [thread1] SyntaxError: missing ; before statement @(shell):1:8
+
+> randomdata = {“name” : null,”over20″ : true,}
+
+{ “name” : null, “over20” : true }
+
+> randomdata = {“name” : null,”over20″ : true,
+
+… “height” : 6.25,”bigint” : 4294967295, “bigLong” : “123243”,
+
+… “address” : “123 main street”, “grades” : [“a”,”b”,”c”],
+
+… “hiredate” : new Date(),”info” : {“name” : “sue smith”};
+
+… }
+
+2017-09-21T14:48:31.423+0800 E QUERY    [thread1] SyntaxError: missing } after property list @(shell):4:55
+
+> randomdata = {“name” : null,”over20″ : true, “height” : 6.25,”bigint” : 4294967295, “bigLong” : “123243”, “address” : “123 main street”, “grades” : [“a”,”b”,”c”], “hiredate” : new Date(),”info” : {“name” : “sue smith”}
+
+… };
+
+{
+
+“name” : null,
+
+“over20” : true,
+
+“height” : 6.25,
+
+“bigint” : 4294967295,
+
+“bigLong” : “123243”,
+
+“address” : “123 main street”,
+
+“grades” : [
+
+“a”,
+
+“b”,
+
+“c”
+
+],
+
+“hiredate” : ISODate(“2017-09-21T06:48:37.440Z”),
+
+“info” : {
+
+“name” : “sue smith”
+
+}
+
+}
+
+> db.t
+
+db.test_1           db.toLocaleString(  db.toString(        db.tojson(
+
+> db.test_1.in
+
+db.test_1.initializeOrderedBulkOp(    db.test_1.insertMany(
+
+db.test_1.initializeUnorderedBulkOp(  db.test_1.insertOne(
+
+db.test_1.insert(
+
+> db.test_1.insert(randomdata)
+
+WriteResult({ “nInserted” : 1 })
+
+>
+
+> db.test_1.find().pretty
+
+function () {
+
+this._prettyShell = true;
+
+return this;
+
+}
+
+> db.test_1.find().pretty()
+
+{
+
+“_id” : ObjectId(“59c360f646494d8873b819a8”),
+
+“name” : null,
+
+“over20” : true,
+
+“height” : 6.25,
+
+“bigint” : 4294967295,
+
+“bigLong” : “123243”,
+
+“address” : “123 main street”,
+
+“grades” : [
+
+“a”,
+
+“b”,
+
+“c”
+
+],
+
+“hiredate” : ISODate(“2017-09-21T06:48:37.440Z”),
+
+“info” : {
+
+“name” : “sue smith”
+
+}
+
+}
+
+> help
+
+db.help()                    help on db methods
+
+db.mycoll.help()             help on collection methods
+
+sh.help()                    sharding helpers
+
+rs.help()                    replica set helpers
+
+help admin                   administrative help
+
+help connect                 connecting to a db help
+
+help keys                    key shortcuts
+
+help misc                    misc things to know
+
+help mr                      mapreduce
+
+show dbs                     show database names
+
+show collections             show collections in current database
+
+show users                   show users in current database
+
+show profile                 show most recent system.profile entries with time >= 1ms
+
+show logs                    show the accessible logger names
+
+show log [name]              prints out the last segment of log in memory, ‘global’ is default
+
+use <db_name>                set current database
+
+db.foo.find()                list objects in collection foo
+
+db.foo.find( { a : 1 } )     list objects in foo where a == 1
+
+it                           result of the last line evaluated; use to further iterate
+
+DBQuery.shellBatchSize = x   set default number of items to display on shell
+
+exit                         quit the mongo shell
+
+>
+
+>
+
+>
+
+> db.test_1.fin
+
+test_1.test_1.fin
+
+> db.test_1.find
+
+function (query, fields, limit, skip, batchSize, options) {
+
+var cursor = new DBQuery(this._mongo,
+
+this._db,
+
+this,
+
+this._fullName,
+
+this._massageObject(query),
+
+fields,
+
+limit,
+
+skip,
+
+batchSize,
+
+options || this.getQueryOptions());
+
+var connObj = this.getMongo();
+
+var readPrefMode = connObj.getReadPrefMode();
+
+if (readPrefMode != null) {
+
+cursor.readPref(readPrefMode, connObj.getReadPrefTagSet());
+
+}
+
+var rc = connObj.getReadConcern();
+
+if (rc) {
+
+cursor.readConcern(rc);
+
+}
+
+return cursor;
+
+}
+
+> ulimit n 2048
+
+2017-09-21T14:51:10.792+0800 E QUERY    [thread1] SyntaxError: missing ; before statement @(shell):1:7
+
+>
+
+>
+
+> exit
+
+bye
+
+yangzhiqiongs-MacBook-Pro:~ peteryang$ pwd
+
+/Users/peteryang
+
+yangzhiqiongs-MacBook-Pro:~ peteryang$ cd code
+
+-bash: cd: code: No such file or directory
+
+yangzhiqiongs-MacBook-Pro:~ peteryang$ ls
+
+Applications Downloads Music dump.rdb moby
+
+Desktop Library Pictures hellonode
+
+Documents Movies Public liteide
+
+yangzhiqiongs-MacBook-Pro:~ peteryang$ cd cd moby/
+
+-bash: cd: cd: No such file or directory
+
+yangzhiqiongs-MacBook-Pro:~ peteryang$ ls
+
+Applications Downloads Music dump.rdb moby
+
+Desktop Library Pictures hellonode
+
+Documents Movies Public liteide
+
+yangzhiqiongs-MacBook-Pro:~ peteryang$ \
+
+>
+
+yangzhiqiongs-MacBook-Pro:~ peteryang$
+
+yangzhiqiongs-MacBook-Pro:~ peteryang$ cd ..
+
+yangzhiqiongs-MacBook-Pro:Users peteryang$ ls
+
+Guest Shared peteryang
+
+yangzhiqiongs-MacBook-Pro:Users peteryang$ cd peteryang/
+
+yangzhiqiongs-MacBook-Pro:~ peteryang$ ls
+
+Applications Downloads Music dump.rdb moby
+
+Desktop Library Pictures hellonode
+
+Documents Movies Public liteide
+
+yangzhiqiongs-MacBook-Pro:~ peteryang$ mkdir peter
+
+yangzhiqiongs-MacBook-Pro:~ peteryang$
+
+yangzhiqiongs-MacBook-Pro:~ peteryang$ cd peter/
+
+yangzhiqiongs-MacBook-Pro:peter peteryang$ ls
+
+yangzhiqiongs-MacBook-Pro:peter peteryang$
+
+yangzhiqiongs-MacBook-Pro:peter peteryang$
+
+yangzhiqiongs-MacBook-Pro:peter peteryang$ cd peter
+
+-bash: cd: peter: No such file or directory
+
+yangzhiqiongs-MacBook-Pro:peter peteryang$ ls
+
+yangzhiqiongs-MacBook-Pro:peter peteryang$ ls
+
+yangzhiqiongs-MacBook-Pro:peter peteryang$ pwd
+
+/Users/peteryang/peter
+
+yangzhiqiongs-MacBook-Pro:peter peteryang$ vim peteryang.js
+
+yangzhiqiongs-MacBook-Pro:peter peteryang$ pwd
+
+/Users/peteryang/peter
+
+yangzhiqiongs-MacBook-Pro:peter peteryang$ mogo
+
+-bash: mogo: command not found
+
+yangzhiqiongs-MacBook-Pro:peter peteryang$ mongo
+
+MongoDB shell version v3.4.9
+
+connecting to: mongodb://127.0.0.1:27017
+
+MongoDB server version: 3.4.9
+
+Server has startup warnings:
+
+2017-09-21T14:20:24.304+0800 I CONTROL  [main] ** WARNING: –rest is specified without –httpinterface,
+
+2017-09-21T14:20:24.304+0800 I CONTROL  [main] **          enabling http interface
+
+2017-09-21T14:20:25.847+0800 I CONTROL  [initandlisten]
+
+2017-09-21T14:20:25.848+0800 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+
+2017-09-21T14:20:25.848+0800 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+
+2017-09-21T14:20:25.848+0800 I CONTROL  [initandlisten]
+
+2017-09-21T14:20:25.848+0800 I CONTROL  [initandlisten]
+
+2017-09-21T14:20:25.848+0800 I CONTROL  [initandlisten] ** WARNING: soft rlimits too low. Number of files is 256, should be at least 1000
+
+>
+
+> load(‘peteryang.js’)
+
+true
+
+> selectDB()
+
+connecting to: mongodb://localhost:27017/test_1
+
+MongoDB server version: 3.4.9
+
+test_1
+
+> selectDB(27017,”test”)
+
+connecting to: mongodb://localhost:27017/test
+
+MongoDB server version: 3.4.9
+
+test
+
+> selectDB()
+
+connecting to: mongodb://localhost:27017/test_1
+
+MongoDB server version: 3.4.9
+
+test_1
+
+> load(‘mongorc.js’)
+
+2017-09-21T15:20:24.004+0800 E QUERY    [thread1] [mongorc.js:1:22] SyntaxError: missing ; before statement
+
+Stack trace:
+
+@(shell):1:1
+
+———-
+
+2017-09-21T15:20:24.010+0800 E QUERY    [thread1] Error: error loading js file: mongorc.js @(shell):1:1
+
+> load(‘mongorc.js’)
+
+2017-09-21T15:21:12.585+0800 E QUERY    [thread1] [mongorc.js:1:22] SyntaxError: missing ; before statement
+
+Stack trace:
+
+@(shell):1:1
+
+———-
+
+2017-09-21T15:21:12.585+0800 E QUERY    [thread1] Error: error loading js file: mongorc.js @(shell):1:1
+
+> load(‘mongorc.js’)
+
+2017-09-21T15:21:18.951+0800 E QUERY    [thread1] [mongorc.js:1:22] SyntaxError: missing ; before statement
+
+Stack trace:
+
+@(shell):1:1
+
+———-
+
+2017-09-21T15:21:18.951+0800 E QUERY    [thread1] Error: error loading js file: mongorc.js @(shell):1:1
+
+> load(‘mongorc.js’)
+
+2017-09-21T15:21:30.519+0800 E QUERY    [thread1] [mongorc.js:1:22] SyntaxError: missing ; before statement
+
+Stack trace:
+
+@(shell):1:1
+
+———-
+
+2017-09-21T15:21:30.519+0800 E QUERY    [thread1] Error: error loading js file: mongorc.js @(shell):1:1
+
+>
+
+>
+
+>
+
+> susysmith = {“name” : “Susy Smith”}
+
+{ “name” : “Susy Smith” }
+
+> edit susysmith
+
+please define EDITOR as a JavaScript string or as an environment variable
+
+> load(‘mongorc.js’)
+
+2017-09-21T15:24:36.409+0800 E QUERY    [thread1] [mongorc.js:1:22] SyntaxError: missing ; before statement
+
+Stack trace:
+
+@(shell):1:1
+
+———-
+
+2017-09-21T15:24:36.410+0800 E QUERY    [thread1] Error: error loading js file: mongorc.js @(shell):1:1
+
+> load(‘peteryang.js’)
+
+true
+
+>
+
+>
+
+> load(‘mongorc.js’)
+
+2017-09-21T15:27:33.202+0800 E QUERY    [thread1] [mongorc.js:1:23] SyntaxError: missing ; before statement
+
+Stack trace:
+
+@(shell):1:1
+
+———-
+
+2017-09-21T15:27:33.202+0800 E QUERY    [thread1] Error: error loading js file: mongorc.js @(shell):1:1
+
+> load(‘mongorc.js’)
+
+2017-09-21T15:28:25.792+0800 E QUERY    [thread1] [mongorc.js:1:23] SyntaxError: missing ; before statement
+
+Stack trace:
+
+@(shell):1:1
+
+———-
+
+2017-09-21T15:28:25.792+0800 E QUERY    [thread1] Error: error loading js file: mongorc.js @(shell):1:1
+
+>
